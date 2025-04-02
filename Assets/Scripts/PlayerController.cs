@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        rb = GetComponent <Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(moveinput * moveSpeed, rb.velocity.y);
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-        
+
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -44,9 +44,9 @@ public class PlayerController : MonoBehaviour
             collision.GetComponent<LevelObject>().MoveNextLevel();
         }
     }
-
-   // public void SetCollisionDetect()//충돌주기 체크변경
-   // {
-    //    rb.collisionDetectionMode = CollisionDetectionMode2D.
-   // }
 }
+
+// public void SetCollisionDetect()//충돌주기 체크변경
+// {
+//    rb.collisionDetectionMode = CollisionDetectionMode2D.
+// }
